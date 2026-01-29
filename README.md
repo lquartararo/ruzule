@@ -21,15 +21,9 @@ A Rust rewrite of [pyzule-rw/cyan](https://github.com/asdfzxcvbn/pyzule-rw) - th
 
 ## Installation
 
-### Pre-built Releases
-
-Download the latest release for your platform from the [Releases](https://github.com/asdfzxcvbn/ruzule/releases) page. Each release includes all required tools and frameworks.
-
-### From Source
-
 ```bash
 # Clone the repository
-git clone https://github.com/asdfzxcvbn/ruzule
+git clone https://github.com/lquartararo/ruzule
 cd ruzule
 
 # Download bundled tools and frameworks
@@ -111,48 +105,6 @@ The generated .cyan file can then be applied to any app:
 ruzule -i app.ipa -z config.cyan
 ```
 
-## Bundled Dependencies
-
-Releases include all required tools and frameworks:
-
-### Tools (platform-specific)
-- `ldid` - Code signing
-- `insert_dylib` - Dylib injection
-- `install_name_tool` - Dependency path modification
-
-### Frameworks (in `extras/`)
-- `CydiaSubstrate.framework` (ElleKit)
-- `Orion.framework`
-- `Cephei.framework`
-- `CepheiUI.framework`
-- `CepheiPrefs.framework`
-
-## Native Implementations
-
-Unlike the original Python version, ruzule implements several operations natively in Rust:
-
-- **Binary thinning** - Extracts arm64 slice from fat binaries using the `goblin` crate
-- **Dependency inspection** - Parses Mach-O LC_LOAD_DYLIB commands directly
-- **Encryption detection** - Checks LC_ENCRYPTION_INFO without external tools
-
-This reduces external dependencies and improves performance.
-
-## Building Releases
-
-To build a release package with all dependencies:
-
-```bash
-# First, download tools and frameworks
-./scripts/bundle.sh
-
-# Build and package for current platform
-./scripts/release.sh
-```
-
-The release tarball will be created in the `releases/` directory.
-
 ## Acknowledgements
 
 - [asdfzxcvbn](https://github.com/asdfzxcvbn/pyzule-rw) for the original pyzule-rw/cyan
-
-

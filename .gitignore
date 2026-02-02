@@ -1,0 +1,13 @@
+# Build
+target/
+
+# Editor
+*.swp
+.DS_Store
+
+# Test files
+*.ipa
+*.deb
+*.cyan
+control.tar.gz
+debian-binary
